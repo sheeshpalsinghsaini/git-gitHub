@@ -1,0 +1,328 @@
+# Commands
+
+<<<<<<< HEAD
+
+# ====================================================== Basic of Git ==========================================================
+
+            Git is a type of version control system. Saving the history of project.
+                track which person, in which project and where make changes.
+                ->Save all changes of all records.
+
+            Note: history are stored in .git folder[repo] in local system.
+            GitHub: platfrom, online website that allow us to host our repository[folder].
+
+
+
+
+
+
+
+
+
+
+            set UserName & E-mail:
+                git config --global user.name "sheeshpalsinghsaini"                     //set a userName.
+                git config --global user.email "123sheeshpalsinghsaini@gmail.com"       //set email.
+
+                git status                                   //show current status
+                git init                                     //initialize git repo.[make .git hidden folder]
+
+
+            Note:
+            -> Untracked files          //git have no control of these file
+            -> track files              //git have all information about these files.
+            -> commits                   //ready to push for remote repository.
+            -> modify                    //some changes in a file after it need to add and commit again.
+
+                git add file1Name file2Name ....        //track by git now.
+                git add .                               //track all file by git[untrack files].
+
+                
+                git commit -m "provide a messages"      //commit git tracked files. now we can push these file on remote.
+                git remote add origin //provide https://address         //link remote in current folder. and give origin name.
+                git config --get remote.origin.url                      //print origin path.
+                git remote                                              //print which name give to remote location
+                git remote -v                                           //print fetch and push path of remote location.
+
+                git push -u origin              //push content to origin in default branch
+                git push -u origin master       //push into origin master branch.
+
+                git rm --cached file1.text file2.text   //remove file from stagin area.
+                
+
+
+
+
+
+
+
+
+
+
+                Working_Dir ---[git add.]-->    StagginArea/CacheArea   --[gitCommit]->     LocalRepo/CommitedArea  --[gitPush]--->     RemoteRepo
+                    |                                   |                                                |        <----------------------gitPull
+                    |                                   |                                                |                                  |
+
+
+
+
+
+
+                git log                                                 //show all previous commits with all details
+
+
+
+  ###  git generate hashcode for every commits:
+
+                git log --oneline                   //show all commits in short
+
+                we can create branch from every commits[hashcode].
+                git log -1                          //show last one commit
+                git log -2                          //show last two commit
+                git log --grep="give msg"           //filter according to msg.
+                    like: git log --grep="only"     //filter out in which commit is only apear.
+                
+                git log --since="30/01/2022"        //show all commits after give date.
+                git log --until="01/02/2022"        //show all commits till give date.
+
+=======
+>>>>>>> b14927c9d39ce62ee8a08226d171c9a206df0c63
+
+
+
+
+
+  ## Remove Staging file by git:
+        git clean -n            //show all untracked files.
+        git clean -d            //delete all untracked files.
+        git clean -i -d         //provide some option for deleting files.
+
+
+
+
+
+  ## Showing changes Between WorkingDirectory & StaginArea,WD & LR, SA & LA:->
+        git diff            //show changes between WD & SA
+        git diff --staged   //show changes between SA & LA
+        or git diff --cached 
+
+        git diff HEAD       //show diff between WD & LA
+        git diff head
+
+
+
+
+
+  ## Reset Command:->
+        reset move head from current commit to revious with remove current commits.
+
+        9c58c30 (HEAD -> main, origin/main, origin/HEAD) update readme.md file
+        17c6e81 update Readme.md file
+        b14927c Update README.md
+        378930f Update README.md
+        8fecb5a Update README.md            ----> we want to move here head and remove all latest commit after it.
+        3fabd53 Update README.md
+        65875e9 updated files
+        2ef9ca9 first time update
+        f61b70f Initial commit
+
+
+    Note: revert is better than reset.
+
+        when we are using *reset* command it have two option.
+            - --hard : remove file form everywhere commits.
+            - --soft : remove file from commit but present in staging area and working directory.
+            - --mixed : 
+
+  ## Using --hard option with *reset*: ->
+        git reset --hard HashCode_put_here      //remove permanantly latest commit.[from wd,sa,ra].
+
+        //it is not remove from remote repo for remove there push current commit in remote repo.
+        //it show an error for your branch is behind from remote repo.
+
+        Now we need to push force-fully push.
+
+        git push -f -u origin main      //push forcefully code in remote repo.
+
+  ## Using --soft option with *reset*:->
+        git reset --soft hashCode_provide_here
+        //move changes into staging area.
+
+ ## Using --mixed option with *reset*:->
+        move content only into working directory[untracked file].
+
+        git reset --mixed HashCode_provide_here
+    ------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+# BasicGitCommand
+    -  It is a free and open-source version control system used to handle small to very large
+       projects efficiently. Git is used to tracking changes in the source code, enabling multiple 
+       developers to work together on non-linear development.
+
+
+# Basic Commands for Git Version control
+
+
+1. git config --global user.name "sheeshpal" -> Set user name.
+2. git config --global user.email "example@gmail.com" -> set email.
+3. git init -> initialize git repository
+4. git clone < repo-address > -> clone/getch/download repo from github.
+5. git add "filename" -> track file by git.
+6. git add . -> track all file by git.
+7. git commit -m "any message to commit" -> save tracking record.
+8. git status -> tell current status about git repository.
+9. git remote add origin < address remote repo> -> add remote repo.
+10. git remote -> show remote location name like origin.
+11. git git remote -v -> show where to fetch and push data.
+12. git branch "newBranchName" -> create new branch.
+13. git branch "newBranchName" hashCode -> create Branch from any commit by hash code.
+14. git checkout "branchName" -> Change brnach name.
+15. git branch -d "branchName" -> delete branch into local machine.
+16. git push -d origin "branchName" -> delelte branch into remote location.
+17. git push -u origin master/main.
+18. git push -u origin "branchName" -> push other branch, if not exit into remote then it create.
+19. git push --all origin -> push all branch at origin.
+20. git pull -> fetch all changes from remote to local working directory.
+21. git merge < branchName > -> merge branch into current branch.
+22. git log -> show all commit
+23. git log -1 -> show last one commit.
+24. git log -2 -> show last two commit.
+25. git log --oneline -> show all commit in short
+26. git branch -M newBranchName -> change branch name.
+
+
+
+# Conflict in git
+when change same thing in two or more branch with different content 
+and try to merge it then it show to us a conflict.
+
+    - we can decide which change preserve or which one not. -> resolve conflict.
+
+    resolve: remove those thing which do you not want to same.
+    then commit again.
+
+
+# .gitignore
+    - it ignore by the git, and git doesn't track to it.
+    - use for ignore the file by git.
+    - generaly use for ignore large file which is not required.
+    
+    make a .gitignore file and write down all the file inside it.
+    and it basically ignore all these file[ only mention inside it ]
+
+
+# Skipping the staging area :
+    git add .
+    git add -A
+    git add -u  //these three command are same.
+
+    Difference in these command [Git version 2.x]
+
+    command         NewFile        ModifyFile        DeleteFile     Description
+    git add -A      right           right              right        stage All[new,delete,modify]
+
+    git add .       right           right              right        stage all
+
+    git add -u      no              right               right       stage modified and delete file only
+
+
+    
+
+# Gid Diff command :
+
+    wd -> working directory
+    sa -> staging Area
+    LR -> local repository.
+
+    Showing changes between WD & SA,  WD & LR, SA & LR 
+
+    Working Dir     Staging Area/cache Area       Local Repo/Committed Area
+
+     |------ git diff-------|-------git diff --staged[git diff --cached]--|
+     |                                                                    |
+     |------------------git diff head[git diff head]----------------------|
+
+
+# Renaming and Remove file :
+## Rename:
+    Normal way is by right click and rename then stage and commit.
+
+    By git command :
+        git mv file4.text file3.text    // rename fiel and come into stage area.
+
+## Delete/Remove :
+    Normal way is by right click on file and delete
+
+    by git command:
+        git rm file2.txt        //remove file
+        git rm --cached file1.text      //remove file from staging area.
+
+
+# UnStaging and UnModifying Files changes in Git :
+    Discard the changes in working file and adding in staging area.
+
+
+    git add <fileName>... -> update what will be committed
+
+    git restore <fileName>... -> to discard changes in working directory
+
+
+
+# Reset command : --hard, --soft, and --mixed 
+
+    All commits have its own hashcode which is unique in all of them.
+
+    by misstake if we commit some changes we can roll back our commit to its previous commits
+
+    ** reset is dangerous for uses because if it reset the commit then it delete to that we can't
+    got it again. 
+
+    
+
+    -> for using reset we used three option
+        - --hard
+        - --shoft
+        - --mixed
+
+
+        example: with hard option
+        
+        git reset --hard <hashcode>        //remove commit from local reop.
+
+        //for remove from remote also need to push
+        git push -u origin master       // it show error bcz our branch is behind by one commit.
+
+        //now we need to push code forcefully with -f option
+        git push -f -u origin master    //now it push the code at remote forcefully.
+
+
+        example: with soft option
+        git reset --soft <hashcode>         //remove from commit and come up in staging area.
+
+        git rm --cached file1 file2         //remove from track by git
+
+        //for remove file from the untrack by git
+        git clean -n        //show all file which in untrack we can delete those file
+        git clean -d -i     //delete recursivly
+
+
+
+# Revert command :
+    git revert <hashcode>       // make a new commit after changes of above given hashcode.
+
+    //now our repo is ahead one commit form the remote repo.
+
+
+
+    //now for get deleted commited revert new revert commit
+
+    git revert <hashcode> 
+
+    //we can delete commit with a range.
+
+    git revert <starting_commit_hashcode>^..<last_commit_hashcode>      //need to provide manula msg
+
+    //we can give same commit for all the rage deleted commit for save time
+
+    git revert --no-commit <startHashcode>^..<lastHashcode>     // all file come up into staging area with deleted file.
+                                                                //now need to commit these deleted file.
