@@ -1,0 +1,69 @@
+==> Git
+
+1. git init  // initialize git, now git will track current folder.
+
+U -> untracked Sign
+A -> Index Added
+M -> modify file
+
+
+
+
+++++++++
+    Git Commands
+    1. git init
+    2. git add . 
+    3. git commit -m "MESSAGE"
+
+    4. git log 
+    5. git status
+
+
+    6. git cat-file -t commit 
+        - -t => type [commit/stage/indexAdded]
+        - -s => size [size of file] 
+        - -p => print [ print content on terminal]
+
+
+++++++++++
+    Change head position
+    
+    7.  git diff hashCode01 hashCode02 ...
+    8.  git reset hashCode // will contain left commit
+    9.  git reset --hard hashCode // will delete after given hashCode commit. [changes lost] 
+    10. git log 
+    11. git log --oneline
+    12. glog 
+    13. git branch // will print all avialbe branch
+    14. git branch <newBranchName> // create new branch from current branch.
+    15. git merge <branch> // branch will merge in current branch.
+    16. git checkout -b <branchName> // if branch is not there will create, otherwise switch to exist one.
+
+/// jis branch ma merge karna ha phala usma move kara then use 'git merge <jo branch merge karni ha> 
+
+
+++++++
+
+squash: merge all commit into one , squash create a branch new commit then merge into current branch. 
+ move to main branch first
+
+    17. git merge --squash <featureBranch>
+
+++++++
+rebase: when lot of feature and commit add into master, our feature is left with lot of commit,
+        then we do rebase to have our branch on latest commit. means rewrite all commit into our branch. 
+
+        git rebase master  // rebase master branch into current branch. 
+
+
+++++++
+--set-upstream:  when local branch is not present in repository.
+
+    git push --set-upstream origin feat-z // in remote repo feat-z branch will create and push changes into. 
+    
+
+chai cohot
+    - onboard documentation
+    - create git repo
+    - document all git command 
+    - 
